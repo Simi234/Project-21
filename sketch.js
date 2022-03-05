@@ -24,9 +24,9 @@ function setup() {
 	ground = new Ground(400,690,800,20);
   right = new Ground(790,400,20,800);
   left = new Ground(10,400,20,800);
-  top_wall = new Ground(400,100,800,20);
-  bin_1 = new Ground(650,700, 12,100);
-	bin_2 = new Ground(700,700,12,50);
+  top_wall = new Ground(400,10,800,20);
+  bin_1 = new Ground(630,628,12,100);
+	bin_2 = new Ground(700,653,12,50);
 ball = Bodies.circle(100, 600, 10, balls_option);
 
   World.add(world,ball);
@@ -42,13 +42,18 @@ function draw() {
   ground.display();
   right.display();
   left.display();
-  top.display();
+  top_wall.display();
   bin_1.display();
   bin_2.display();
   ellipse(ball.position.x,ball.position.y, 20)
   drawSprites();
  
 }
+function keyPressed(){
+  if(keyIsDown === UP_ARROW){
 
 
-
+    Matter.Body.applyForce(ball.position,{
+      x: (24)
+    })
+  }
